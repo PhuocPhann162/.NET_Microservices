@@ -27,6 +27,23 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// Apply migration
+ApplyMigration();
+
 app.MapControllers();
 
 app.Run();
+
+// Apply Migration (Don't need to update-database)
+void ApplyMigration()
+{
+    using( var scope = app.Services.CreateScope())
+    {
+        var _db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        if(_db.Database.GetMigrations().Count() > 0)
+        {
+            _db.Database.Migrate();
+        }
+   
+    }
+}
