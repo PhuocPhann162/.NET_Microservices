@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FucoMicro.Services.CouponAPI.props" />
+</Project>
