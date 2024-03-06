@@ -21,7 +21,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
             _response = new ResponseDto();
         }
 
-        [HttpGet("getAll")]
+        [HttpGet]
         public ResponseDto GetAll()
         {
             try
@@ -68,7 +68,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
         }
 
         [HttpGet]
-        [Route("GetByCode/{code}")]
+        [Route("getByCode/{code}")]
         public ResponseDto GetByCode(string code)
         {
             try

@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "l4HuMmr+7yBeyMwobqUSjV5kyXMmemskbvjD05697ZYE8hNpQo0yf4T8hAaOfP5SHaj9+xGx5HFN1pthz4nnjA==",
+  "dgSpecHash": "zZuSNN06LbFrh9oq2A0Vjh09mJ4P8TvqY2HeoboKtBHfcfPeBS316gIRxFv6/0cGSzDYNq6iuM68uhT8etX7Pw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\FucoMicro.Web.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json' 12.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
