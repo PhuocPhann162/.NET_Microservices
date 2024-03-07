@@ -22,6 +22,11 @@ namespace FucoMicro.Web.Controllers
 			{
 				list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(responseDto.Result));
 			}
+			else
+			{
+				TempData["error"] = responseDto?.Message;
+			}
+
 			return View(list);
 		}
 
@@ -38,9 +43,14 @@ namespace FucoMicro.Web.Controllers
 				ResponseDto? responseDto = await _couponService.CreateCouponAsync(couponDto);
 				if(responseDto != null && responseDto.IsSuccess)
 				{
-					return RedirectToAction(nameof(CouponIndex));
+                    TempData["success"] = responseDto?.Message;
+                    return RedirectToAction(nameof(CouponIndex));
 				}
-			}
+                else
+                {
+                    TempData["error"] = responseDto?.Message;
+                }
+            }
 			return View(couponDto);
 		}
 
@@ -52,9 +62,14 @@ namespace FucoMicro.Web.Controllers
 				ResponseDto? responseDto = await _couponService.UpdateCouponAsync(couponDto);
 				if (responseDto != null && responseDto.IsSuccess)
 				{
-					return RedirectToAction(nameof(CouponIndex));
+                    TempData["success"] = responseDto?.Message;
+                    return RedirectToAction(nameof(CouponIndex));
 				}
-			}
+                else
+                {
+                    TempData["error"] = responseDto?.Message;
+                }
+            }
 			return View(couponDto);
 		}
 
@@ -66,18 +81,27 @@ namespace FucoMicro.Web.Controllers
                 CouponDto model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
                 return View(model);
             }
-			return NotFound();
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return NotFound();
         }
 
 		[HttpPost, ActionName("CouponDelete")]
-        public async Task<IActionResult> CouponDeletePost(int couponId)
+        public async Task<IActionResult> CouponDeletePost(CouponDto couponDto)
         {
-            ResponseDto? response = await _couponService.DeleteCouponAsync(couponId);
+            ResponseDto? response = await _couponService.DeleteCouponAsync(couponDto.CouponId);
             if (response != null && response.IsSuccess)
             {
+                TempData["success"] = response?.Message;
                 return RedirectToAction(nameof(CouponIndex));
             }
-            return View(couponId);
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(couponDto);
         }
     }
 }

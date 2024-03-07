@@ -105,7 +105,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
 
                 _response.Result = _mapper.Map<CouponDto>(obj);
                 _response.StatusCode = HttpStatusCode.OK;
-                _response.Message = "Create new coupon successfully";
+                _response.Message = "Created new coupon successfully";
             }
             catch (Exception ex)
             {
@@ -127,7 +127,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
 
                 _response.Result = _mapper.Map<CouponDto>(obj);
                 _response.StatusCode = HttpStatusCode.OK;
-                _response.Message = "Update coupon successfully";
+                _response.Message = "Updated coupon successfully";
             }
             catch (Exception ex)
             {
@@ -149,7 +149,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
                 _db.SaveChanges();
 
                 _response.StatusCode = HttpStatusCode.OK;
-                _response.Message = "Delete coupon successfully";
+                _response.Message = "Deleted coupon successfully";
             }
             catch (Exception ex)
             {
