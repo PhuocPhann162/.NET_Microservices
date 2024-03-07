@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "jFo0Aj29meQyFkVM60mN/byN1PzLFZqN9xQIVTOEr3E=",
+  "Source": "FucoMicro.Services.AuthAPI",
+  "BasePath": "_content/FucoMicro.Services.AuthAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

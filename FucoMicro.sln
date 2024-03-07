@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.CouponAPI", "FucoMicro.Services.CouponAPI\FucoMicro.Services.CouponAPI.csproj", "{03681FB2-9126-499E-BF95-DDCBA9DEC41B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Web", "FucoMicro.Web\FucoMicro.Web.csproj", "{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Web", "FucoMicro.Web\FucoMicro.Web.csproj", "{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Services.AuthAPI", "FucoMicro.Services.AuthAPI\FucoMicro.Services.AuthAPI.csproj", "{582D5BCE-258E-4F46-A32F-D978DDDB8385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{582D5BCE-258E-4F46-A32F-D978DDDB8385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{582D5BCE-258E-4F46-A32F-D978DDDB8385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{582D5BCE-258E-4F46-A32F-D978DDDB8385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{582D5BCE-258E-4F46-A32F-D978DDDB8385}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{03681FB2-9126-499E-BF95-DDCBA9DEC41B} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 		{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F} = {9BC7C120-17E4-4BD9-8E5C-57C082F0BA02}
+		{582D5BCE-258E-4F46-A32F-D978DDDB8385} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E85E3EC-18C4-48E8-B06E-2736B4F2D55E}
