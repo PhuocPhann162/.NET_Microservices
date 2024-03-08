@@ -4,8 +4,8 @@ namespace FucoMicro.Services.AuthAPI.Services.IService
 {
     public interface IAuthService
     {
-        //Task<RegistrationRequestDto>
-        //Task<LoginRequestDto> 
-        //Task<LoginResponseDto> 
+        Task<string> Register(RegistrationRequestDto registrationRequestDto);
+        Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto);
+        
     }
 }

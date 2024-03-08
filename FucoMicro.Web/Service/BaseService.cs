@@ -19,7 +19,6 @@ namespace FucoMicro.Web.Service
         {
             try
             {
-
                 HttpClient client = _httpClientFactory.CreateClient("FucoMicroAPI");
                 HttpRequestMessage message = new();
                 message.Headers.Add("Accept", "application/json");

@@ -1,5 +1,6 @@
 ﻿using FucoMicro.Services.AuthAPI.Data;
 using FucoMicro.Services.AuthAPI.Models.Dto;
+using FucoMicro.Services.AuthAPI.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -9,46 +10,42 @@ namespace FucoMicro.Services.AuthAPI.Controllers
     [ApiController]
     public class AuthAPIController : ControllerBase
     {
-        private readonly ApplicationDbContext _db;
-        private ResponseDto _responseDto;
+        private readonly IAuthService _authService;
+        private ResponseDto _response;
 
-        public AuthAPIController(ApplicationDbContext db)
+        public AuthAPIController(IAuthService authService)
         {
-            _db = db;
-            _responseDto = new ResponseDto();
+            _response = new ResponseDto();
+            _authService = authService;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegistrationRequestDto registerRequestDto )
+        public async Task<IActionResult> Register([FromBody] RegistrationRequestDto model)
         {
-            try
+            var errorMessages = await _authService.Register(model);
+            if (!string.IsNullOrEmpty(errorMessages))
             {
-
-                Regi
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = errorMessages;
+                return BadRequest(_response);
             }
-            catch(Exception ex)
-            {
-                _responseDto.StatusCode = HttpStatusCode.BadRequest;
-                _responseDto.IsSuccess = false;
-                _responseDto.Message = ex.Message;
-            }
-            return Ok();
+            return Ok(_response);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto model)
         {
-            try
+            LoginResponseDto loginResponse = await _authService.Login(model);
+            if (loginResponse.User == null)
             {
-
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = "Something wrong when login";
+                return BadRequest(_response);
             }
-            catch (Exception ex)
-            {
-                _responseDto.StatusCode = HttpStatusCode.BadRequest;
-                _responseDto.IsSuccess = false;
-                _responseDto.Message = ex.Message;
-            }
-            return Ok();
+            _response.Result = loginResponse;
+            return Ok(_response);
         }
 
     }
