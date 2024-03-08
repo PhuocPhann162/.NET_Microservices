@@ -30,7 +30,7 @@ namespace FucoMicro.Services.AuthAPI.Controllers
                 _response.Message = errorMessages;
                 return BadRequest(_response);
             }
-            _response.Message = "Registered account successfully";
+            _response.Message = "Registration successfully";
             _response.StatusCode = HttpStatusCode.OK;
             return Ok(_response);
         }

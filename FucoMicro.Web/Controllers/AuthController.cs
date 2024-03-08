@@ -1,6 +1,8 @@
 ﻿using FucoMicro.Web.Models;
 using FucoMicro.Web.Service.IService;
+using FucoMicro.Web.Utility;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FucoMicro.Web.Controllers
 {
@@ -15,13 +17,19 @@ namespace FucoMicro.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Register()
         {
+            var roleList = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text = SD.RoleAdmin, Value = SD.RoleAdmin},
+                new SelectListItem() { Text = SD.RoleCustomer, Value = SD.RoleCustomer}
+            };
+            ViewBag.RoleList = roleList;
             return View();
         }
 
         [HttpGet]
         public async Task<IActionResult> Login()
         {
-            LoginRequestDto loginRequestDto = new ();
+            LoginRequestDto loginRequestDto = new();
             return View(loginRequestDto);
         }
 
@@ -34,19 +42,34 @@ namespace FucoMicro.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegistrationRequestDto model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 ResponseDto? response = await _authService.RegisterAsync(model);
-                if(response != null && response.IsSuccess)
+                ResponseDto? assignRole;
+                if (response != null && response.IsSuccess)
                 {
-                    TempData["success"] = response?.Message;
-                    return RedirectToAction(nameof(Login));
+                    if (string.IsNullOrEmpty(model.Role))
+                    {
+                        model.Role = SD.RoleCustomer;
+                    }
+                    assignRole = await _authService.AssignRoleAsync(model);
+                    if (assignRole != null && assignRole.IsSuccess)
+                    {
+                        TempData["success"] = response?.Message;
+                        return RedirectToAction(nameof(Login));
+                    }
                 }
                 else
                 {
                     TempData["error"] = response?.Message;
                 }
             }
+            var roleList = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text = SD.RoleAdmin, Value = SD.RoleAdmin},
+                new SelectListItem() { Text = SD.RoleCustomer, Value = SD.RoleCustomer}
+            };
+            ViewBag.RoleList = roleList;
             return View(model);
         }
 
