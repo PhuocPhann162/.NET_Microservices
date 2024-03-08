@@ -12,12 +12,15 @@ namespace FucoMicro.Services.AuthAPI.Services
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
-        public AuthService(ApplicationDbContext db, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AuthService(ApplicationDbContext db, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IJwtTokenGenerator jwtTokenGenerator)
         {
             _db = db;
             _userManager = userManager;
             _roleManager = roleManager;
+            _jwtTokenGenerator = jwtTokenGenerator;
+
         }
 
         public async Task<string> Register(RegistrationRequestDto registrationRequestDto)
@@ -71,6 +74,8 @@ namespace FucoMicro.Services.AuthAPI.Services
             }
 
             // if user was found, Generate JWT Tokens
+            var token = _jwtTokenGenerator.GenerateToken(userFromDb);
+
 
             UserDto userDto = new()
             {
@@ -83,11 +88,26 @@ namespace FucoMicro.Services.AuthAPI.Services
             LoginResponseDto loginResponseDto = new()
             {
                 User = userDto,
-                Token = "",
+                Token = token,
             };
 
             return loginResponseDto;
         }
 
+        public async Task<bool> AssignRole(string email, string roleName)
+        {
+            var userFromDb = _db.ApplicationUsers.FirstOrDefault(u => u.Email.ToLower() == email.ToLower());
+            if(userFromDb != null)
+            {
+                if(!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+                {
+                    // create role if it does not exist 
+                   await  _roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+                await _userManager.AddToRoleAsync(userFromDb, roleName);
+                return true;
+            }
+            return false;
+        }
     }
 }

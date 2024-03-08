@@ -30,6 +30,8 @@ namespace FucoMicro.Services.AuthAPI.Controllers
                 _response.Message = errorMessages;
                 return BadRequest(_response);
             }
+            _response.Message = "Registered account successfully";
+            _response.StatusCode = HttpStatusCode.OK;
             return Ok(_response);
         }
 
@@ -44,9 +46,23 @@ namespace FucoMicro.Services.AuthAPI.Controllers
                 _response.Message = "Something wrong when login";
                 return BadRequest(_response);
             }
+            _response.Message = "Login to account successfully";
             _response.Result = loginResponse;
             return Ok(_response);
         }
 
+        [HttpPost("assignRole")]
+        public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
+        {
+            var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role.ToUpper());
+            if (!assignRoleSuccessful)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = "Something wrong when assigning user role";
+                return BadRequest(_response);
+            }
+            return Ok(_response);
+        }
     }
 }

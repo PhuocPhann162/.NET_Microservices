@@ -1,4 +1,4 @@
-﻿namespace FucoMicro.Services.AuthAPI.Models.Dto
+﻿namespace FucoMicro.Web.Models
 {
     public class RegistrationRequestDto
     {

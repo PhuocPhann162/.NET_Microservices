@@ -13,14 +13,16 @@ builder.Services.AddHttpClient();
 
 // Config CouponService will use HttpClient
 builder.Services.AddHttpClient<ICouponService, CouponService>();
+builder.Services.AddHttpClient<IAuthService, AuthService>();
 
 // Config for using coupon api url 
 SD.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
-
+SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
 // Config for Scoped Lifetime in DI
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 var app = builder.Build();

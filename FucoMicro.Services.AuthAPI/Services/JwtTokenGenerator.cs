@@ -1,5 +1,6 @@
 ﻿using FucoMicro.Services.AuthAPI.Models;
 using FucoMicro.Services.AuthAPI.Services.IService;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -11,9 +12,9 @@ namespace FucoMicro.Services.AuthAPI.Services
     {
         private readonly JwtOptions _jwtOptions;
 
-        public JwtTokenGenerator(JwtOptions jwtOptions)
+        public JwtTokenGenerator(IOptions<JwtOptions> jwtOptions)
         {
-            _jwtOptions = jwtOptions;
+            _jwtOptions = jwtOptions.Value;
         }
 
         public string GenerateToken(ApplicationUser applicationUser)
@@ -35,7 +36,12 @@ namespace FucoMicro.Services.AuthAPI.Services
                 Issuer = _jwtOptions.Issuer,
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+           
         }
     }
 }
