@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "zZuSNN06LbFrh9oq2A0Vjh09mJ4P8TvqY2HeoboKtBHfcfPeBS316gIRxFv6/0cGSzDYNq6iuM68uhT8etX7Pw==",
+  "dgSpecHash": "vaXEuQ8g/A/ozrdZMemhp8vLaQmcHht7QbDkwl+S6LlhMO7DWuBrNTJdURULX5dbHQXuBOB58G2LAEzdWNdcjQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\FucoMicro.Web.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Asus\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512"
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.4.0\\microsoft.identitymodel.abstractions.7.4.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.4.0\\microsoft.identitymodel.jsonwebtokens.7.4.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.identitymodel.logging\\7.4.0\\microsoft.identitymodel.logging.7.4.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.4.0\\microsoft.identitymodel.tokens.7.4.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.4.0\\system.identitymodel.tokens.jwt.7.4.0.nupkg.sha512"
   ],
   "logs": [
     {

@@ -1,17 +1,25 @@
 ﻿using FucoMicro.Web.Models;
 using FucoMicro.Web.Service.IService;
 using FucoMicro.Web.Utility;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace FucoMicro.Web.Controllers
 {
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
-        public AuthController(IAuthService authService)
+        private readonly ITokenProvider _tokenProvider;
+
+        public AuthController(IAuthService authService, ITokenProvider tokenProvider)
         {
             _authService = authService;
+            _tokenProvider = tokenProvider;
         }
 
         [HttpGet]
@@ -23,19 +31,6 @@ namespace FucoMicro.Web.Controllers
                 new SelectListItem() { Text = SD.RoleCustomer, Value = SD.RoleCustomer}
             };
             ViewBag.RoleList = roleList;
-            return View();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Login()
-        {
-            LoginRequestDto loginRequestDto = new();
-            return View(loginRequestDto);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Logout()
-        {
             return View();
         }
 
@@ -73,6 +68,13 @@ namespace FucoMicro.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
+            LoginRequestDto loginRequestDto = new();
+            return View(loginRequestDto);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequestDto model)
@@ -82,15 +84,48 @@ namespace FucoMicro.Web.Controllers
                 ResponseDto? response = await _authService.LoginAsync(model);
                 if (response != null && response.IsSuccess)
                 {
+                    LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(response.Result));
+                    await SignInUser(loginResponseDto);
+                    _tokenProvider.SetToken(loginResponseDto.Token);
                     TempData["success"] = response?.Message;
-                    return RedirectToAction(nameof(Index), nameof(HomeController));
+                    return RedirectToAction(nameof(Index), "Home");
                 }
                 else
                 {
-                    TempData["error"] = response?.Message;
+                    ModelState.AddModelError("CustomError", response.Message);
+                    return View(model);
                 }
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            return View();
+        }
+
+        private async Task SignInUser(LoginResponseDto model)
+        {
+            var handler = new JwtSecurityTokenHandler();
+
+            var jwt = handler.ReadJwtToken(model.Token);
+
+            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            identity.AddClaim(new Claim(JwtRegisteredClaimNames.Email, 
+                jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+            identity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub, 
+                jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub).Value));
+            identity.AddClaim(new Claim(JwtRegisteredClaimNames.Name, 
+                jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name).Value));
+
+            identity.AddClaim(new Claim(ClaimTypes.Name,
+               jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+
+
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
         }
 
     }
