@@ -74,7 +74,8 @@ namespace FucoMicro.Services.AuthAPI.Services
             }
 
             // if user was found, Generate JWT Tokens
-            var token = _jwtTokenGenerator.GenerateToken(userFromDb);
+            var roles = await _userManager.GetRolesAsync(userFromDb);
+            var token = _jwtTokenGenerator.GenerateToken(userFromDb, roles);
 
 
             UserDto userDto = new()

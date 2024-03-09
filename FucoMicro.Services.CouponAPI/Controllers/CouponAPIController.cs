@@ -2,6 +2,7 @@
 using FucoMicro.Services.CouponAPI.Data;
 using FucoMicro.Services.CouponAPI.Models;
 using FucoMicro.Services.CouponAPI.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -9,6 +10,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
 {
     [Route("api/coupon")]
     [ApiController]
+    [Authorize]
     public class CouponAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
