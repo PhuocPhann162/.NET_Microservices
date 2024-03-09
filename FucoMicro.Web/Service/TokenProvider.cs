@@ -25,7 +25,7 @@ namespace FucoMicro.Web.Service
             return hasToken is true ? token : null;
         }
 
-        public void ClearToken(string token)
+        public void ClearToken()
         {
             _contextAccessor.HttpContext?.Response.Cookies.Delete(SD.TokenCookie);
         }

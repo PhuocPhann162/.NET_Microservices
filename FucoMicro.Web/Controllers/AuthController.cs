@@ -99,10 +99,12 @@ namespace FucoMicro.Web.Controllers
             return View(model);
         }
 
-        [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            return View();
+            await HttpContext.SignOutAsync();
+            _tokenProvider.ClearToken();
+            TempData["success"] = "Sign out successfully";
+            return RedirectToAction("Index", "Home");
         }
 
         private async Task SignInUser(LoginResponseDto model)
