@@ -22,7 +22,7 @@ namespace FucoMicro.Web.Service
                 ApiType = ApiType.POST,
                 Url = SD.AuthAPIBase + "/api/auth/register",
                 Data = registrationRequestDto
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
@@ -32,7 +32,7 @@ namespace FucoMicro.Web.Service
                 ApiType = ApiType.POST,
                 Url = SD.AuthAPIBase + "/api/auth/login", 
                 Data = loginRequestDto,
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> AssignRoleAsync(RegistrationRequestDto registrationRequestDto)
@@ -45,5 +45,6 @@ namespace FucoMicro.Web.Service
                 Data = registrationRequestDto,
             });
         }
+        
     }
 }

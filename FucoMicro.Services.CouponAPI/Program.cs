@@ -29,9 +29,9 @@ builder.Services.AddSwaggerGen(option =>
 {
     option.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
     {
-        Name = "Authorization", 
+        Name = "Authorization",
         Description = "Enter the Bearer Authorization string as following: `Bearer Generated_JWT_Token`",
-        In = ParameterLocation.Header, 
+        In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = JwtBearerDefaults.AuthenticationScheme,
     });
@@ -42,7 +42,7 @@ builder.Services.AddSwaggerGen(option =>
             {
                 Reference = new OpenApiReference
                 {
-                    Type = ReferenceType.SecurityScheme, 
+                    Type = ReferenceType.SecurityScheme,
                     Id = JwtBearerDefaults.AuthenticationScheme,
                 }
             }, new string[] {}
@@ -50,9 +50,11 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 
-var secret = builder.Configuration.GetValue<string>("ApiSettings:Secret");
-var issuer = builder.Configuration.GetValue<string>("ApiSettings:Issuer");
-var audience = builder.Configuration.GetValue<string>("ApiSettings:Audience");
+var settingsSection = builder.Configuration.GetSection("ApiSettings");
+
+var secret = settingsSection.GetValue<string>("Secret");
+var issuer = settingsSection.GetValue<string>("Issuer");
+var audience = settingsSection.GetValue<string>("Audience");
 
 var key = Encoding.ASCII.GetBytes(secret);
 
@@ -66,10 +68,10 @@ builder.Services.AddAuthentication(x =>
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = true, 
+        ValidateIssuer = true,
         ValidIssuer = issuer,
         ValidateAudience = true,
-        ValidAudience = audience, 
+        ValidAudience = audience,
     };
 });
 
@@ -101,13 +103,13 @@ app.Run();
 // Apply Migration (Don't need to update-database)
 void ApplyMigration()
 {
-    using( var scope = app.Services.CreateScope())
+    using (var scope = app.Services.CreateScope())
     {
         var _db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-        if(_db.Database.GetMigrations().Count() > 0)
+        if (_db.Database.GetMigrations().Count() > 0)
         {
             _db.Database.Migrate();
         }
-   
+
     }
 }
