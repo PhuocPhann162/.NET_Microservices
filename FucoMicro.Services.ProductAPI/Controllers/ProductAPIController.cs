@@ -32,8 +32,8 @@ namespace FucoMicro.Services.ProductAPI.Controllers
             {
                 IEnumerable<Product> lstProduct = _db.Products.ToList();
                 _response.StatusCode = HttpStatusCode.OK;
-                _response.Result = _mapper.Map<IEnumerable<ProductDto>>(lstProduct);
                 _response.Message = "Get all products successfully";
+                _response.Result = _mapper.Map<IEnumerable<ProductDto>>(lstProduct);
                 return _response;
             }
             catch(Exception ex)
@@ -105,7 +105,7 @@ namespace FucoMicro.Services.ProductAPI.Controllers
 
                 _response.Result = _mapper.Map<ProductDto>(obj);
                 _response.StatusCode = HttpStatusCode.OK;
-                _response.Message = "New Product created successfully";
+                _response.Message = "Product updated successfully";
             }
             catch (Exception ex)
             {
@@ -128,7 +128,7 @@ namespace FucoMicro.Services.ProductAPI.Controllers
                 _db.SaveChanges();
 
                 _response.StatusCode = HttpStatusCode.OK;
-                _response.Message = "New Product created successfully";
+                _response.Message = "Product deleted successfully";
             }
             catch (Exception ex)
             {

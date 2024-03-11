@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FucoMicro.Services.CouponAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+973267876b61ee94f17f6db5ad316bf47474c3a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd7a9c48d0abaa4125803b55519fa81be16b6b8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FucoMicro.Services.CouponAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FucoMicro.Services.CouponAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
