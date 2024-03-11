@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FucoMicro.Services.ProductAPI.props" />
+</Project>
