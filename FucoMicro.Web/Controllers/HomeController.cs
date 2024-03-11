@@ -1,5 +1,6 @@
 using FucoMicro.Web.Models;
 using FucoMicro.Web.Service.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -34,6 +35,26 @@ namespace FucoMicro.Web.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> ProductDetails(int productId)
+        {
+            if (productId == null || productId == 0)
+            {
+                return NotFound();
+            }
+            ResponseDto? response = await _productService.GetProductByIdAsync(productId);
+            if (response != null && response.IsSuccess)
+            {
+                ProductDto? product = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+                return View(product);
+            }
+            else
+            {
+                TempData["error"] = response.Message;
+            }
+            return NotFound();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
