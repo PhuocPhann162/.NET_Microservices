@@ -54,24 +54,24 @@ namespace FucoMicro.Web.Controllers
 			return View(couponDto);
 		}
 
-		[HttpDelete]
-		public async Task<IActionResult> CouponUpdate(CouponDto couponDto)
-		{
-			if (ModelState.IsValid)
-			{
-				ResponseDto? responseDto = await _couponService.UpdateCouponAsync(couponDto);
-				if (responseDto != null && responseDto.IsSuccess)
-				{
-                    TempData["success"] = responseDto?.Message;
-                    return RedirectToAction(nameof(CouponIndex));
-				}
-                else
-                {
-                    TempData["error"] = responseDto?.Message;
-                }
-            }
-			return View(couponDto);
-		}
+		//[HttpPost]
+		//public async Task<IActionResult> CouponUpdate(CouponDto couponDto)
+		//{
+		//	if (ModelState.IsValid)
+		//	{
+		//		ResponseDto? responseDto = await _couponService.UpdateCouponAsync(couponDto);
+		//		if (responseDto != null && responseDto.IsSuccess)
+		//		{
+  //                  TempData["success"] = responseDto?.Message;
+  //                  return RedirectToAction(nameof(CouponIndex));
+		//		}
+  //              else
+  //              {
+  //                  TempData["error"] = responseDto?.Message;
+  //              }
+  //          }
+		//	return View(couponDto);
+		//}
 
 		public async Task<IActionResult> CouponDelete(int couponId)
 		{

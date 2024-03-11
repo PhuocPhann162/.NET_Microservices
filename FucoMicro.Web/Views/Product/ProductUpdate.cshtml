@@ -1,9 +1,10 @@
 ﻿@model ProductDto
 
-<form asp-action="ProductCreate" method="post" enctype="multipart/form-data">
+<form asp-action="ProductUpdate" method="post">
     <br />
     <div class="container border p-3">
-        <h1 class="text-white text-center">Create Product</h1>
+        <h1 class="text-white text-center">Update Product</h1>
+        <input asp-for="ProductId" hidden/>
         <hr />
         <div class="row">
             <div class="col-2">
@@ -41,12 +42,12 @@
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
-            
+           
             <div class="col-5 offset-2">
-                <a asp-action="ProductIndex" class="btn-primary btn form-control">Back to List</a>
+                <a asp-controller="Product" asp-action="ProductIndex" class="btn-primary btn form-control">Back to List</a>
             </div>
             <div class="col-5">
-                <input type="submit" value="Create" class="btn btn-success form-control" />
+                <input type="submit" value="Update" class="btn btn-info form-control" />
             </div>
         </div>
     </div>
