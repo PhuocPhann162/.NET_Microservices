@@ -2,6 +2,7 @@
 using FucoMicro.Services.ShoppingCartAPI.Data;
 using FucoMicro.Services.ShoppingCartAPI.Models;
 using FucoMicro.Services.ShoppingCartAPI.Models.Dto;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -13,7 +14,7 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
     public class CartAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
-        private IMapper _mapper;
+        private readonly IMapper _mapper;
         private ResponseDto _response;
         public CartAPIController(ApplicationDbContext db, IMapper mapper)
         {
@@ -23,7 +24,36 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
 
         }
 
-        [HttpPost("CartUpsert")]
+        [HttpGet("getCart/{userId}")]
+        public async Task<ResponseDto> GetCart(string userId)
+        {
+            try
+            {
+                CartDto cart = new()
+                {
+                    CartHeader = _mapper.Map<CartHeaderDto>(_db.CartHeaders.First(u => u.UserId == userId)),
+                };
+                cart.CartDetails = _mapper.Map<IEnumerable<CartDetailsDto>>(_db.CartDetails.Where(u => u.CartHeaderId == cart.CartHeader.CartHeaderId));
+
+                foreach(var item in cart.CartDetails)
+                {
+                    cart.CartHeader.CartTotal += item.Product.Price * item.Count;
+                }
+
+                _response.Result = cart;
+                _response.StatusCode = HttpStatusCode.OK;
+                _response.Message = "Get shopping cart successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message.ToString();
+            }
+            return _response;
+        }
+
+        [HttpPost("cartUpsert")]
         public async Task<ResponseDto> CartUpsert(CartDto cartDto)
         {
             try
