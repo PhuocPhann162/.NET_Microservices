@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Web", "FucoMicro.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.AuthAPI", "FucoMicro.Services.AuthAPI\FucoMicro.Services.AuthAPI.csproj", "{582D5BCE-258E-4F46-A32F-D978DDDB8385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Services.ProductAPI", "FucoMicro.Services.ProductAPI\FucoMicro.Services.ProductAPI.csproj", "{030D0D0B-9C4C-45BF-8D15-C7AB1047A6B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.ProductAPI", "FucoMicro.Services.ProductAPI\FucoMicro.Services.ProductAPI.csproj", "{030D0D0B-9C4C-45BF-8D15-C7AB1047A6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Services.ShoppingCartAPI", "FucoMicro.Services.ShoppingCartAPI\FucoMicro.Services.ShoppingCartAPI.csproj", "{24FB83A1-D877-48DF-A38F-E0C6D17018CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{030D0D0B-9C4C-45BF-8D15-C7AB1047A6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{030D0D0B-9C4C-45BF-8D15-C7AB1047A6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{030D0D0B-9C4C-45BF-8D15-C7AB1047A6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24FB83A1-D877-48DF-A38F-E0C6D17018CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FB83A1-D877-48DF-A38F-E0C6D17018CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FB83A1-D877-48DF-A38F-E0C6D17018CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FB83A1-D877-48DF-A38F-E0C6D17018CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{0ADD29A9-AA44-4C8D-9CED-9CA709493F6F} = {9BC7C120-17E4-4BD9-8E5C-57C082F0BA02}
 		{582D5BCE-258E-4F46-A32F-D978DDDB8385} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 		{030D0D0B-9C4C-45BF-8D15-C7AB1047A6B1} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
+		{24FB83A1-D877-48DF-A38F-E0C6D17018CE} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E85E3EC-18C4-48E8-B06E-2736B4F2D55E}
