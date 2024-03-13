@@ -11,10 +11,12 @@ namespace FucoMicro.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductService _productService;
-        public HomeController(ILogger<HomeController> logger, IProductService productService)
+        private readonly ICartService _cartService;
+        public HomeController(ILogger<HomeController> logger, IProductService productService, ICartService cartService)
         {
             _logger = logger;
             _productService = productService;
+            _cartService = cartService;
         }
 
         public async Task<IActionResult> Index()
@@ -55,6 +57,26 @@ namespace FucoMicro.Web.Controllers
                 TempData["error"] = response.Message;
             }
             return NotFound();
+        }
+
+        [Authorize]
+        [HttpPost, ActionName("ProductDetails")]
+        public async Task<IActionResult> ProductDetails(ProductDto productDto)
+        {
+            if (ModelState.IsValid)
+            {
+                ResponseDto? response = await _cartService.UpserCartAsync(model);
+                if (response != null && response.IsSuccess)
+                {
+                    TempData["success"] = response?.Message;
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    TempData["error"] = response?.Message;
+                }
+            }
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

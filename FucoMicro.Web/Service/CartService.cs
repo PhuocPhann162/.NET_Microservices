@@ -39,7 +39,7 @@ namespace FucoMicro.Web.Service
             {
                 ApiType = SD.ApiType.POST,
                 Url = SD.ShoppingCartAPIBase + "/api/cart/removeCoupon",
-                Data = cartDto
+                Data = cartDetailsId
             });
         }
 
