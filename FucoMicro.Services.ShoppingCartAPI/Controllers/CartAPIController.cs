@@ -2,6 +2,7 @@
 using FucoMicro.Services.ShoppingCartAPI.Data;
 using FucoMicro.Services.ShoppingCartAPI.Models;
 using FucoMicro.Services.ShoppingCartAPI.Models.Dto;
+using FucoMicro.Services.ShoppingCartAPI.Services.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,12 +17,15 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
         private readonly ApplicationDbContext _db;
         private readonly IMapper _mapper;
         private ResponseDto _response;
-        public CartAPIController(ApplicationDbContext db, IMapper mapper)
+        private readonly IProductService _productService;
+        private readonly ICouponService _couponService;
+        public CartAPIController(ApplicationDbContext db, IMapper mapper, IProductService productService, ICouponService couponService)
         {
             _db = db;
             _mapper = mapper;
             _response = new ResponseDto();
-
+            _productService = productService;
+            _couponService = couponService;
         }
 
         [HttpGet("getCart/{userId}")]
@@ -35,14 +39,73 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
                 };
                 cart.CartDetails = _mapper.Map<IEnumerable<CartDetailsDto>>(_db.CartDetails.Where(u => u.CartHeaderId == cart.CartHeader.CartHeaderId));
 
-                foreach(var item in cart.CartDetails)
+                IEnumerable<ProductDto> lstProductDtos = await _productService.GetProducts();
+
+
+                foreach (var item in cart.CartDetails)
                 {
+                    item.Product = lstProductDtos.FirstOrDefault(u => u.ProductId == item.ProductId);
                     cart.CartHeader.CartTotal += item.Product.Price * item.Count;
                 }
+
+                if (!string.IsNullOrEmpty(cart.CartHeader.CouponCode))
+                {
+                    CouponDto couponDto = await _couponService.GetCouponByCode(cart.CartHeader.CouponCode);
+                    if (couponDto != null && cart.CartHeader.CartTotal > couponDto.MinAmount)
+                    {
+                        cart.CartHeader.CartTotal -= couponDto.DiscountAmount;
+                        cart.CartHeader.Discount = couponDto.DiscountAmount;
+                    }
+                }
+
 
                 _response.Result = cart;
                 _response.StatusCode = HttpStatusCode.OK;
                 _response.Message = "Get shopping cart successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message.ToString();
+            }
+            return _response;
+        }
+
+        [HttpPost("applyCoupon")]
+        public async Task<ResponseDto> ApplyCoupon([FromBody] CartDto cartDto)
+        {
+            try
+            {
+                var cartFromDb = await _db.CartHeaders.FirstAsync(u => u.UserId == cartDto.CartHeader.UserId);
+                cartFromDb.CouponCode = cartDto.CartHeader.CouponCode;
+                _db.CartHeaders.Update(cartFromDb);
+                await _db.SaveChangesAsync();
+                _response.Result = true;
+                _response.StatusCode = HttpStatusCode.OK;
+                _response.Message = "Apply coupon successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message.ToString();
+            }
+            return _response;
+        }
+
+        [HttpPost("removeCoupon")]
+        public async Task<ResponseDto> RemoveCoupon([FromBody] CartDto cartDto)
+        {
+            try
+            {
+                var cartFromDb = await _db.CartHeaders.FirstAsync(u => u.UserId == cartDto.CartHeader.UserId);
+                cartFromDb.CouponCode = "";
+                _db.CartHeaders.Update(cartFromDb);
+                await _db.SaveChangesAsync();
+                _response.Result = true;
+                _response.StatusCode = HttpStatusCode.OK;
+                _response.Message = "Remove coupon successfully";
             }
             catch (Exception ex)
             {

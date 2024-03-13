@@ -78,3 +78,4 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ShoppingCartAPI\o
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ShoppingCartAPI\obj\Debug\net8.0\FucoMicro.Services.ShoppingCartAPI.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ShoppingCartAPI\obj\Debug\net8.0\FucoMicro.Services.ShoppingCartAPI.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ShoppingCartAPI\obj\Debug\net8.0\ref\FucoMicro.Services.ShoppingCartAPI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ShoppingCartAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
