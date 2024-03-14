@@ -1,5 +1,6 @@
 ﻿using FucoMicro.Web.Models;
 using FucoMicro.Web.Service.IService;
+using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,36 +24,78 @@ namespace FucoMicro.Web.Controllers
             return View(await LoadCartDtoBaseOnLoggedInUser());
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CartUpsert(CartDto model)
-        {
-            if(ModelState.IsValid)
-            {
-                ResponseDto? response = await _cartService.UpserCartAsync(model);
-                if (response != null && response.IsSuccess)
-                {
-                    TempData["success"] = response?.Message;
-                    return RedirectToAction(nameof(CartIndex));
-                }
-                else
-                {
-                    TempData["error"] = response?.Message;
-                }
-            }
-            return View(model);
-        }
-
         private async Task<CartDto> LoadCartDtoBaseOnLoggedInUser()
         {
             var userId = User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value;
             ResponseDto? response = await _cartService.GetCartByUserIdAsync(userId);
-            if(response != null && response.IsSuccess)
+            if (response != null && response.IsSuccess)
             {
                 CartDto cart = JsonConvert.DeserializeObject<CartDto>(Convert.ToString(response.Result));
                 return cart;
             }
+
             return new CartDto();
         }
+
+        public async Task<IActionResult> Remove(int cartDetailsId)
+        {
+            var userId = User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value;
+            ResponseDto? response = await _cartService.RemoveFromCartAsync(cartDetailsId);
+            if (response != null && response.IsSuccess)
+            {
+                bool check = Convert.ToBoolean(response.Result);
+                if (check)
+                {
+                    TempData["success"] = response.Message;
+                    return RedirectToAction(nameof(CartIndex));
+                }
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ApplyCoupon(CartDto cartDto)
+        {
+            ResponseDto? response = await _cartService.ApplyCouponAsync(cartDto);
+            if (response != null && response.IsSuccess)
+            {
+                bool check = Convert.ToBoolean(response.Result);
+                if (check)
+                {
+                    TempData["success"] = response.Message;
+                    return RedirectToAction(nameof(CartIndex));
+                }
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(cartDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveCoupon(CartDto cartDto)
+        {
+            ResponseDto? response = await _cartService.RemoveCouponAsync(cartDto);
+            if (response != null && response.IsSuccess)
+            {
+                bool check = Convert.ToBoolean(response.Result);
+                if (check)
+                {
+                    TempData["success"] = response.Message;
+                    return RedirectToAction(nameof(CartIndex));
+                }
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(cartDto);
+        }
+
     }
 }

@@ -32,13 +32,23 @@ namespace FucoMicro.Web.Service
             });
         }
 
+        public async Task<ResponseDto?> RemoveCouponAsync(CartDto cartDto)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/removeCoupon",
+                Data = cartDto
+            });
+        }
+
 
         public async Task<ResponseDto?> RemoveFromCartAsync(int cartDetailsId)
         {
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.ShoppingCartAPIBase + "/api/cart/removeCoupon",
+                Url = SD.ShoppingCartAPIBase + "/api/cart/removeCart",
                 Data = cartDetailsId
             });
         }

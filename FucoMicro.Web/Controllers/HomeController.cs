@@ -1,9 +1,11 @@
 using FucoMicro.Web.Models;
 using FucoMicro.Web.Service.IService;
+using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace FucoMicro.Web.Controllers
 {
@@ -60,23 +62,36 @@ namespace FucoMicro.Web.Controllers
         }
 
         [Authorize]
-        [HttpPost, ActionName("ProductDetails")]
+        [HttpPost]
+        [ActionName("ProductDetails")]
         public async Task<IActionResult> ProductDetails(ProductDto productDto)
         {
-            if (ModelState.IsValid)
+            CartDto cartDto = new()
             {
-                ResponseDto? response = await _cartService.UpserCartAsync(model);
-                if (response != null && response.IsSuccess)
+                CartHeader = new CartHeaderDto()
                 {
-                    TempData["success"] = response?.Message;
-                    return RedirectToAction(nameof(Index));
+                    UserId = User.Claims.Where(u => u.Type == JwtClaimTypes.Subject)?.FirstOrDefault()?.Value,
                 }
-                else
-                {
-                    TempData["error"] = response?.Message;
-                }
+            };
+            CartDetailsDto cartDetails = new CartDetailsDto()
+            {
+                Count = productDto.Count,
+                ProductId = productDto.ProductId,
+            };
+            List<CartDetailsDto> cartDetailsDtos = new() { cartDetails };
+            cartDto.CartDetails = cartDetailsDtos;
+
+            ResponseDto? response = await _cartService.UpserCartAsync(cartDto);
+            if (response != null && response.IsSuccess)
+            {
+                TempData["success"] = response?.Message;
+                return RedirectToAction(nameof(Index));
             }
-            return View(model);
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(productDto);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

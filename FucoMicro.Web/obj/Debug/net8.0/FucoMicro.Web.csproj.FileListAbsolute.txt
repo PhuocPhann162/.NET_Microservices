@@ -37,3 +37,4 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Micro
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\IdentityModel.dll

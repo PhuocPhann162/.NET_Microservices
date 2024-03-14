@@ -18,7 +18,7 @@ namespace FucoMicro.Services.ShoppingCartAPI.Services
             var responseJson = await client.GetAsync($"/api/coupon/getByCode/{code}");
             var apiContent = await responseJson.Content.ReadAsStringAsync();
             var response = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
-            if(response.IsSuccess)
+            if(response != null && response.IsSuccess)
             {
                 return JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
             }

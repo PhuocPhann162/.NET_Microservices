@@ -133,7 +133,7 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
 
                     _db.CartDetails.Add(_mapper.Map<CartDetails>(cartDto.CartDetails.First()));
                     await _db.SaveChangesAsync();
-                    _response.Message = "Add to cart successfully";
+                    _response.Message = "Item has been added to shopping cart";
                     _response.StatusCode = HttpStatusCode.OK;
                     return _response;
                 }
@@ -141,11 +141,11 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
                 {
                     // if headers is not null
                     // check if details has same product
-                    var cartDetailsFromDb = await _db.CartDetails.AsNoTracking().FirstOrDefaultAsync(u => u.ProductId == cartDto.CartDetails.First().ProductId && u.CartHeader.UserId == cartDto.CartHeader.UserId);
+                    var cartDetailsFromDb = await _db.CartDetails.AsNoTracking().FirstOrDefaultAsync(u => u.ProductId == cartDto.CartDetails.First().ProductId && u.CartHeaderId == cartHeaderFromDb.CartHeaderId);
                     if (cartDetailsFromDb == null)
                     {
                         // create cart Details
-                        cartDto.CartDetails.First().CartHeaderId = cartDto.CartHeader.CartHeaderId;
+                        cartDto.CartDetails.First().CartHeaderId = cartHeaderFromDb.CartHeaderId;
                         _db.CartDetails.Add(_mapper.Map<CartDetails>(cartDto.CartDetails.First()));
                         await _db.SaveChangesAsync();
                     }
