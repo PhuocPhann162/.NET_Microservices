@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace FucoMicro.Services.EmailAPI.Models
+namespace FucoMicro.Services.EmailAPI.Models.Dto
 {
     public class CartHeaderDto
     {
