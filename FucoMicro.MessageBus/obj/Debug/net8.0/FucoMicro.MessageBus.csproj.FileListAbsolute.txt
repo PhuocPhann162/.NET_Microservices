@@ -1,0 +1,13 @@
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\bin\Debug\net8.0\FucoMicro.MessageBus.deps.json
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\bin\Debug\net8.0\FucoMicro.MessageBus.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\bin\Debug\net8.0\FucoMicro.MessageBus.pdb
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.csproj.AssemblyReference.cache
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.AssemblyInfoInputs.cache
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.AssemblyInfo.cs
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.sourcelink.json
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\refint\FucoMicro.MessageBus.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\FucoMicro.MessageBus.pdb
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.MessageBus\obj\Debug\net8.0\ref\FucoMicro.MessageBus.dll

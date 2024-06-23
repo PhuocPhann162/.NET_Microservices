@@ -1,0 +1,6 @@
+@FucoMicro.Services.EmailAPI_HostAddress = http://localhost:5118
+
+GET {{FucoMicro.Services.EmailAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FucoMicro.MessageBus;
 using FucoMicro.Services.ShoppingCartAPI.Data;
 using FucoMicro.Services.ShoppingCartAPI.Models;
 using FucoMicro.Services.ShoppingCartAPI.Models.Dto;
@@ -15,17 +16,21 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
     public class CartAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
-        private readonly IMapper _mapper;
+        private IMapper _mapper;
         private ResponseDto _response;
-        private readonly IProductService _productService;
-        private readonly ICouponService _couponService;
-        public CartAPIController(ApplicationDbContext db, IMapper mapper, IProductService productService, ICouponService couponService)
+        private readonly IConfiguration _configuration;
+        private IProductService _productService;
+        private ICouponService _couponService;
+        private readonly IMessageBus _messageBus;
+        public CartAPIController(ApplicationDbContext db, IMapper mapper, IProductService productService, ICouponService couponService, IMessageBus messageBus, IConfiguration configuration)
         {
             _db = db;
             _mapper = mapper;
             _response = new ResponseDto();
             _productService = productService;
             _couponService = couponService;
+            _messageBus = messageBus;
+            _configuration = configuration;
         }
 
         [HttpGet("getCart/{userId}")]
@@ -84,6 +89,26 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
                 _response.Result = true;
                 _response.StatusCode = HttpStatusCode.OK;
                 _response.Message = "Apply coupon successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message.ToString();
+            }
+            return _response;
+        }
+
+        [HttpPost("emailCartRequest")]
+        public async Task<ResponseDto> EmailCartRequest([FromBody] CartDto cartDto)
+        {
+            try
+            {
+                await _messageBus.PublishMessage(cartDto, _configuration.GetValue<string>("TopicAndQueueNames:EmailShoppingCartQueue"));
+                
+                _response.Result = true;
+                _response.StatusCode = HttpStatusCode.OK;
+                _response.Message = "Send email cart successfully";
             }
             catch (Exception ex)
             {

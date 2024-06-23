@@ -9,5 +9,6 @@ namespace FucoMicro.Web.Service.IService
         Task<ResponseDto?> RemoveFromCartAsync(int cartDetailsId);
         Task<ResponseDto?> ApplyCouponAsync(CartDto cartDto);
         Task<ResponseDto?> RemoveCouponAsync(CartDto cartDto);
+        Task<ResponseDto?> EmailCartAsync(CartDto cartDto);
     }
 }

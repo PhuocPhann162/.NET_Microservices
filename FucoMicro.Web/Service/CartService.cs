@@ -62,5 +62,15 @@ namespace FucoMicro.Web.Service
                 Data = cartDto
             });
         }
+
+        public async Task<ResponseDto?> EmailCartAsync(CartDto cartDto)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/emailCartRequest",
+                Data = cartDto
+            });
+        }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "0TWf24oBScEyuKWUquaEXZty1IgRY/h+jmXnWmM6Mcs=",
+  "Source": "FucoMicro.Services.EmailAPI",
+  "BasePath": "_content/FucoMicro.Services.EmailAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
