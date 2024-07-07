@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
@@ -33,6 +34,41 @@ namespace FucoMicro.Web.Controllers
             ViewBag.RoleList = roleList;
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterNewUser(RegistrationRequestDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                ResponseDto? responseDto = await _authService.RegisterAsync(model);
+                ResponseDto? assignRole;
+                if (responseDto != null && responseDto.IsSuccess)
+                {
+                    if (string.IsNullOrEmpty(model.Role))
+                    {
+                        model.Role = SD.RoleCustomer;
+                    }
+                    assignRole = await _authService.AssignRoleAsync(model);
+                    if (assignRole != null && assignRole.IsSuccess)
+                    {
+                        TempData["success"] = responseDto?.Message;
+                        return RedirectToAction(nameof(RegisterNewUser));
+                    }
+                }
+                else
+                {
+                    TempData["error"] = responseDto?.Message;
+                }
+            }
+            var roleList = new List<SelectListItem>()
+            {
+                new SelectListItem() {Text =SD.RoleCustomer, Value = SD.RoleCustomer},
+                new SelectListItem() {Text = SD.RoleAdmin, Value = SD.RoleAdmin},
+            };
+            ViewBag.RoleList = roleList;
+            return View(model);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Register(RegistrationRequestDto model)

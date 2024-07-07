@@ -1,6 +1,7 @@
 using FucoMicro.Services.EmailAPI.Data;
 using FucoMicro.Services.EmailAPI.Extension;
 using FucoMicro.Services.EmailAPI.Messaging;
+using FucoMicro.Services.EmailAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>(); ;
+optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddSingleton(new EmailService(optionBuilder.Options));
+
+
+
 builder.Services.AddSingleton<IAzureServiceBusConsumer, AzureServiceBusConsumer>();
 
 builder.Services.AddControllers();
