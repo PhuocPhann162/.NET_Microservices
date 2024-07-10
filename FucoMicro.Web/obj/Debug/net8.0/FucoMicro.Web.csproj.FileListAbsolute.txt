@@ -6,7 +6,13 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\FucoM
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\FucoMicro.Web.runtimeconfig.json
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\FucoMicro.Web.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\FucoMicro.Web.pdb
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\IdentityModel.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\FucoMicro.Web.csproj.AssemblyReference.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\FucoMicro.Web.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\FucoMicro.Web.AssemblyInfoInputs.cache
@@ -32,9 +38,3 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\refin
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\FucoMicro.Web.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\FucoMicro.Web.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\obj\Debug\net8.0\ref\FucoMicro.Web.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Web\bin\Debug\net8.0\IdentityModel.dll

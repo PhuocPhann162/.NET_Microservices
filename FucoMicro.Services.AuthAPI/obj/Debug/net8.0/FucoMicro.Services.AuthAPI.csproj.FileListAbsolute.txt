@@ -8,11 +8,14 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Azure.Core.Amqp.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Azure.Messaging.ServiceBus.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.Azure.Amqp.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
@@ -33,9 +36,11 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\System.Drawing.Common.dll
@@ -57,6 +62,8 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\FucoMicro.MessageBus.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\FucoMicro.MessageBus.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug\net8.0\FucoMicro.Services.AuthAPI.csproj.AssemblyReference.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug\net8.0\FucoMicro.Services.AuthAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug\net8.0\FucoMicro.Services.AuthAPI.AssemblyInfoInputs.cache

@@ -8,10 +8,13 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debu
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Azure.Core.Amqp.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Azure.Messaging.ServiceBus.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.Azure.Amqp.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
@@ -32,9 +35,11 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debu
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.EmailAPI\bin\Debug\net8.0\System.Drawing.Common.dll

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FucoMicro.MessageBus")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25908e02a0584547d5c7b1a3979b6c84f9f819d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f89f73ad0dda2e1fd1fc0cb0a72f32d347956bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("FucoMicro.MessageBus")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FucoMicro.MessageBus")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
