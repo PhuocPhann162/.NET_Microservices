@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.ProductA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.ShoppingCartAPI", "FucoMicro.Services.ShoppingCartAPI\FucoMicro.Services.ShoppingCartAPI.csproj", "{24FB83A1-D877-48DF-A38F-E0C6D17018CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.MessageBus", "FucoMicro.MessageBus\FucoMicro.MessageBus.csproj", "{D955F9C6-9345-4971-8D2C-167906A69942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.MessageBus", "FucoMicro.MessageBus\FucoMicro.MessageBus.csproj", "{D955F9C6-9345-4971-8D2C-167906A69942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Services.EmailAPI", "FucoMicro.Services.EmailAPI\FucoMicro.Services.EmailAPI.csproj", "{7664E064-A592-41B1-BD30-BD6C987E02CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.EmailAPI", "FucoMicro.Services.EmailAPI\FucoMicro.Services.EmailAPI.csproj", "{7664E064-A592-41B1-BD30-BD6C987E02CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Services.OrderAPI", "FucoMicro.Services.OrderAPI\FucoMicro.Services.OrderAPI.csproj", "{DF4924C3-C274-49D2-BEE2-2AD93EA02A62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{7664E064-A592-41B1-BD30-BD6C987E02CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7664E064-A592-41B1-BD30-BD6C987E02CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7664E064-A592-41B1-BD30-BD6C987E02CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF4924C3-C274-49D2-BEE2-2AD93EA02A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF4924C3-C274-49D2-BEE2-2AD93EA02A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF4924C3-C274-49D2-BEE2-2AD93EA02A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF4924C3-C274-49D2-BEE2-2AD93EA02A62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{24FB83A1-D877-48DF-A38F-E0C6D17018CE} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 		{D955F9C6-9345-4971-8D2C-167906A69942} = {70D3687A-B0DA-490F-B742-B808D09BA0EB}
 		{7664E064-A592-41B1-BD30-BD6C987E02CE} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
+		{DF4924C3-C274-49D2-BEE2-2AD93EA02A62} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E85E3EC-18C4-48E8-B06E-2736B4F2D55E}

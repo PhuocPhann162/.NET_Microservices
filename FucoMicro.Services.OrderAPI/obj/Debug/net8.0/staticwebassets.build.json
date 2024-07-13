@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GkB52lK3Ee5HmzRUBWmsC9i7tzcN0BeJUSnsWrYoRsY=",
+  "Source": "FucoMicro.Services.OrderAPI",
+  "BasePath": "_content/FucoMicro.Services.OrderAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

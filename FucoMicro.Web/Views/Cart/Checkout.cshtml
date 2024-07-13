@@ -20,16 +20,16 @@
             <div class="col-7">
                 <div class="row pt-2">
                     <div class="col-12 py-2">
-                        <input asp-for="CartHeader.FirstName" placeholder="first name..." class="form-control" />
-                    </div>
-                    <div class="col-12 py-2">
-                        <input asp-for="CartHeader.LastName" placeholder="last name..." class="form-control" />
+                        <input asp-for="CartHeader.Name" placeholder="full name..." class="form-control" />
+                        <span asp-validation-for="CartHeader.Name" class="text-danger"></span>
                     </div>
                     <div class="col-12 py-2">
                         <input asp-for="CartHeader.Email" placeholder="email..." class="form-control" />
+                        <span asp-validation-for="CartHeader.Email" class="text-danger"></span>
                     </div>
                     <div class="col-12 py-2">
                         <input asp-for="CartHeader.Phone" class="form-control" placeholder="phone number..." />
+                        <span asp-validation-for="CartHeader.Phone" class="text-danger"></span>
                     </div>
                     <div class="col-12 pt-2">
                         <label class="col-form-label">Order will be ready in 30minutes after placing order. If you place order when restaurant is closed it will be ready next day.</label>
@@ -67,7 +67,7 @@
 
                                 </div>
                                 <div class="col-3" style="font-size:11px;">
-                                    <span style="font-size:17px;"> @cartItem.Product.Count</span>
+                                    <span style="font-size:17px;"> @cartItem.Count</span>
                                 </div>
                             </div>
                         }
@@ -76,7 +76,10 @@
                         <div class="row">
                             <div class="col-12 text-center pr-4 text-danger">
                                 Order Total : @Model.CartHeader.CartTotal.ToString("c") <br />
-                                <span class="text-success"> Order Discount :  $$</span>
+                                @if(Model.CartHeader.Discount > 0)
+                                {
+                                    <span class="text-success"> Order Discount : @Model.CartHeader.Discount.ToString("c")</span>
+                                }
                             </div>
                         </div>
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FucoMicro.Services.EmailAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f9e8837e93aac2af30c945058c7e50552722cb9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0281b5260c3b3370d77eccf4bb98d7d69e613bd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("FucoMicro.Services.EmailAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FucoMicro.Services.EmailAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

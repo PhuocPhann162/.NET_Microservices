@@ -53,7 +53,7 @@ namespace FucoMicro.Web.Service
             });
         }
 
-        public async Task<ResponseDto?> UpserCartAsync(CartDto cartDto)
+        public async Task<ResponseDto?> UpsertCartAsync(CartDto cartDto)
         {
             return await _baseService.SendAsync(new RequestDto()
             {
