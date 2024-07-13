@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FucoMicro.Services.ShoppingCartAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f89f73ad0dda2e1fd1fc0cb0a72f32d347956bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f9e8837e93aac2af30c945058c7e50552722cb9")]
 [assembly: System.Reflection.AssemblyProductAttribute("FucoMicro.Services.ShoppingCartAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FucoMicro.Services.ShoppingCartAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

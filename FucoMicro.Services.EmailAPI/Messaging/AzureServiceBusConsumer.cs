@@ -69,9 +69,8 @@ namespace FucoMicro.Services.EmailAPI.Messaging
             {
                 throw new Exception(ex.Message);
             }
-
         }
-
+       
         private async Task OnUserRegisterRequestReceived(ProcessMessageEventArgs args)
         {
             // this is where you will receive the message 
