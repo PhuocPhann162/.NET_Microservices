@@ -8,6 +8,8 @@ using FucoMicro.Services.OrderAPI.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
+using Stripe.Checkout;
 using System.Net;
 
 namespace FucoMicro.Services.OrderAPI.Controllers
@@ -55,6 +57,57 @@ namespace FucoMicro.Services.OrderAPI.Controllers
                 _response.Result = orderHeaderDto;
                 _response.StatusCode = HttpStatusCode.OK;
                 _response.Message = "Create new order successfully";
+                return _response;
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return _response;
+        }
+
+        [Authorize]
+        [HttpPost("CreateStripeSession")]
+        public async Task<ResponseDto> CreateStripeSession([FromBody] StripeRequestDto stripeRequestDto)
+        {
+            try
+            {
+               
+                var options = new Stripe.Checkout.SessionCreateOptions
+                {
+                    SuccessUrl = stripeRequestDto.ApprovedUrl,
+                    CancelUrl = stripeRequestDto.ApprovedUrl,
+                    LineItems = new List<Stripe.Checkout.SessionLineItemOptions>
+                    {
+                        new Stripe.Checkout.SessionLineItemOptions
+                        {
+                            Price = "price_1MotwRLkdIwHu7ixYcPLm5uZ",
+                            Quantity = 2,
+                        },
+                    },
+                    Mode = "payment",
+                };
+
+                foreach(var item in stripeRequestDto.OrderHeader.OrderDetails)
+                {
+                    var sessionLineItem = new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = (long)(item.Price * 100), // $20.99 -> 2099
+                            Currency = "usd", 
+                        }
+                    };
+                }
+
+                var service = new Stripe.Checkout.SessionService();
+                service.Create(options);
+
+                _response.Result = stripeRequestDto;
+                _response.Message = "Create Stripe session successfully";
+                _response.StatusCode = HttpStatusCode.OK;
                 return _response;
             }
             catch (Exception ex)

@@ -17,9 +17,9 @@ namespace FucoMicro.Web.Service
         {
             return await _baseService.SendAsync(new RequestDto()
             {
-                ApiType = SD.ApiType.GET, 
+                ApiType = SD.ApiType.POST, 
                 Data = cartDto, 
-                Url = SD.OrderAPIBase + "/api/order",
+                Url = SD.OrderAPIBase + "/api/order/CreateOrder",
             });
         }
     }
