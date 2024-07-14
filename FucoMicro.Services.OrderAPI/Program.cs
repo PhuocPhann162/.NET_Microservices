@@ -7,7 +7,6 @@ using FucoMicro.Services.OrderAPI.Utilities;
 using FucoMicro.Services.OrderAPI.Services;
 using FucoMicro.MessageBus;
 using FucoMicro.Services.OrderAPI.Extensions;
-using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,7 +72,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+Stripe.StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
 app.UseHttpsRedirection();
 

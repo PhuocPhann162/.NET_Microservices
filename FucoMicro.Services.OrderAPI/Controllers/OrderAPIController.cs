@@ -8,6 +8,7 @@ using FucoMicro.Services.OrderAPI.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Stripe;
 using Stripe.Checkout;
 using System.Net;
@@ -19,8 +20,8 @@ namespace FucoMicro.Services.OrderAPI.Controllers
     public class OrderAPIController : ControllerBase
     {
         protected ResponseDto _response;
-        private IMapper _mapper;
         private readonly ApplicationDbContext _db;
+        private IMapper _mapper;
         private IProductService _productService;
 
         public OrderAPIController(ApplicationDbContext db, IProductService productService, IMapper mapper)
@@ -74,36 +75,41 @@ namespace FucoMicro.Services.OrderAPI.Controllers
         {
             try
             {
-               
                 var options = new Stripe.Checkout.SessionCreateOptions
                 {
                     SuccessUrl = stripeRequestDto.ApprovedUrl,
                     CancelUrl = stripeRequestDto.ApprovedUrl,
-                    LineItems = new List<Stripe.Checkout.SessionLineItemOptions>
-                    {
-                        new Stripe.Checkout.SessionLineItemOptions
-                        {
-                            Price = "price_1MotwRLkdIwHu7ixYcPLm5uZ",
-                            Quantity = 2,
-                        },
-                    },
+                    LineItems = new List<SessionLineItemOptions>(),
                     Mode = "payment",
                 };
 
-                foreach(var item in stripeRequestDto.OrderHeader.OrderDetails)
+                foreach (var item in stripeRequestDto.OrderHeader.OrderDetails)
                 {
                     var sessionLineItem = new SessionLineItemOptions
                     {
                         PriceData = new SessionLineItemPriceDataOptions
                         {
                             UnitAmount = (long)(item.Price * 100), // $20.99 -> 2099
-                            Currency = "usd", 
-                        }
+                            Currency = "usd",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = item.Product.Name,
+                                Description = item.Product.Description,
+                            }
+                        },
+                        Quantity = item.Count
                     };
+                    options.LineItems.Add(sessionLineItem);
                 }
 
                 var service = new Stripe.Checkout.SessionService();
-                service.Create(options);
+                Session session = service.Create(options);
+                stripeRequestDto.StripeSessionUrl = session.Url;
+
+                // Store stripe to database
+                OrderHeader orderHeaderFromDb = await _db.OrderHeaders.FirstAsync(u => u.OrderHeaderId == stripeRequestDto.OrderHeader.OrderHeaderId);
+                orderHeaderFromDb.StripeSessionId = session.Id;
+                _db.SaveChanges();
 
                 _response.Result = stripeRequestDto;
                 _response.Message = "Create Stripe session successfully";

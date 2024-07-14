@@ -1,6 +1,7 @@
 ﻿using FucoMicro.Web.Models;
 using FucoMicro.Web.Service;
 using FucoMicro.Web.Service.IService;
+using FucoMicro.Web.Utility;
 using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -48,6 +49,19 @@ namespace FucoMicro.Web.Controllers
             if (response != null && response.IsSuccess)
             {
                 // get stripe session and redirect to stripe to place order 
+                var domain = Request.Scheme + "://" + Request.Host.Value + "/";
+
+                StripeRequestDto stripeRequestDto = new()
+                {
+                    ApprovedUrl = domain + "cart/Confirmation?orderId=" + newOrder.OrderHeaderId,
+                    CancelUrl = domain + "cart/checkout",
+                    OrderHeader = newOrder, 
+                };
+
+                ResponseDto? stripeResponse = await _orderService.CreateSessionStripe(stripeRequestDto);
+                StripeRequestDto stripeResponseResult = JsonConvert.DeserializeObject<StripeRequestDto>(Convert.ToString(stripeResponse.Result));
+                Response.Headers.Add("Location", stripeResponseResult.StripeSessionUrl);
+                return new StatusCodeResult(303);
             }
 
             return View();

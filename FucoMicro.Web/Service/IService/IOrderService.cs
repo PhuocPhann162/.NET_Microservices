@@ -5,5 +5,6 @@ namespace FucoMicro.Web.Service.IService
     public interface IOrderService
     {
         Task<ResponseDto?> CreateOrderAsync(CartDto cartDto);
+        Task<ResponseDto?> CreateSessionStripe(StripeRequestDto stripeRequestDto);
     }
 }
