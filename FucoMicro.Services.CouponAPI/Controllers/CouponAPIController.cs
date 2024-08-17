@@ -33,7 +33,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
                 _response.Message = "Get all coupons successfully";
                 _response.Result = _mapper.Map<IEnumerable<CouponDto>>(objList);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _response.StatusCode = HttpStatusCode.BadRequest;
                 _response.IsSuccess = false;
@@ -49,7 +49,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
             try
             {
                 Coupon obj = _db.Coupons.FirstOrDefault(u => u.CouponId == id);
-                if(obj == null)
+                if (obj == null)
                 {
                     _response.IsSuccess = false;
                     _response.StatusCode = HttpStatusCode.NotFound;
@@ -97,7 +97,7 @@ namespace FucoMicro.Services.CouponAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles ="ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Post([FromBody] CouponDto couponDto)
         {
             try
@@ -105,6 +105,16 @@ namespace FucoMicro.Services.CouponAPI.Controllers
                 Coupon obj = _mapper.Map<Coupon>(couponDto);
                 _db.Coupons.Add(obj);
                 _db.SaveChanges();
+
+                var options = new Stripe.CouponCreateOptions
+                {
+                    AmountOff = (long)(couponDto.DiscountAmount * 100),
+                    Name = couponDto.CouponCode, 
+                    Currency = "usd", 
+                    Id = couponDto.CouponCode, 
+                };
+                var service = new Stripe.CouponService();
+                service.Create(options);
 
                 _response.Result = _mapper.Map<CouponDto>(obj);
                 _response.StatusCode = HttpStatusCode.OK;
@@ -152,6 +162,9 @@ namespace FucoMicro.Services.CouponAPI.Controllers
                 Coupon obj = _db.Coupons.First(u => u.CouponId == id);
                 _db.Coupons.Remove(obj);
                 _db.SaveChanges();
+
+                var service = new Stripe.CouponService();
+                service.Delete(obj.CouponCode);
 
                 _response.StatusCode = HttpStatusCode.OK;
                 _response.Message = "Deleted coupon successfully";

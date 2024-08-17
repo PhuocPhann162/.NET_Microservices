@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\FucoMicro.Services.RewardAPI.props" />
+</Project>

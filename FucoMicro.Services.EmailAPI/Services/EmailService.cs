@@ -1,4 +1,5 @@
 ﻿using FucoMicro.Services.EmailAPI.Data;
+using FucoMicro.Services.EmailAPI.Message;
 using FucoMicro.Services.EmailAPI.Models;
 using FucoMicro.Services.EmailAPI.Models.Dto;
 using Microsoft.EntityFrameworkCore;
@@ -90,8 +91,13 @@ namespace FucoMicro.Services.EmailAPI.Services
         public async Task RegisterUserEmailAndLog(string email)
         {
             string message = "User Registration Successful. <br/> Email : " + email;
-            await LogAndEmail(message, "admin@gmail.com");
+            await LogAndEmail(message, "trolaithang5@gmail.com");
         }
 
+        public async Task LogOrderPlaced(RewardsMessage rewardsDto)
+        {
+            string message = "New Order Placed. <br/>Order ID: " + rewardsDto.OrderId;
+            await LogAndEmail(message, "trolaithang5@gmail.com");
+        }
     }
 }

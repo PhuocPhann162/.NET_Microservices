@@ -78,3 +78,5 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.CouponAPI\obj\Deb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.CouponAPI\obj\Debug\net8.0\FucoMicro.Services.CouponAPI.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.CouponAPI\obj\Debug\net8.0\FucoMicro.Services.CouponAPI.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.CouponAPI\obj\Debug\net8.0\ref\FucoMicro.Services.CouponAPI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.CouponAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.CouponAPI\bin\Debug\net8.0\Stripe.net.dll

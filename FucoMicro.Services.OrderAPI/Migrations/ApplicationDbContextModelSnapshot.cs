@@ -50,7 +50,7 @@ namespace FucoMicro.Services.OrderAPI.Migrations
 
                     b.HasIndex("OrderHeaderId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("FucoMicro.Services.OrderAPI.Models.OrderHeader", b =>
@@ -99,7 +99,7 @@ namespace FucoMicro.Services.OrderAPI.Migrations
 
                     b.HasKey("OrderHeaderId");
 
-                    b.ToTable("OrderHeaders");
+                    b.ToTable("OrderHeaders", (string)null);
                 });
 
             modelBuilder.Entity("FucoMicro.Services.OrderAPI.Models.OrderDetails", b =>
