@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\order.PNG"
     },
     {
+      "Id": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\wwwroot\\js\\order.js",
+      "PackagePath": "staticwebassets\\js\\order.js"
+    },
+    {
       "Id": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

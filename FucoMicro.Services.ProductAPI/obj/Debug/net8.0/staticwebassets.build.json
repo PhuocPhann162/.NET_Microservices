@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "XPazHuH371XHKsPnvX2cv+nfEcmUh4RRR7WkduK4Hgo=",
+  "Hash": "5r9O6wIqlSYGcYWFGiJdBergjvbeHB5qYvp77c/C2+0=",
   "Source": "FucoMicro.Services.ProductAPI",
   "BasePath": "_content/FucoMicro.Services.ProductAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "FucoMicro.Services.ProductAPI\\wwwroot",
+      "Source": "FucoMicro.Services.ProductAPI",
+      "ContentRoot": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\",
+      "BasePath": "_content/FucoMicro.Services.ProductAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\ProductImages\\10.png",
+      "SourceId": "FucoMicro.Services.ProductAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\",
+      "BasePath": "_content/FucoMicro.Services.ProductAPI",
+      "RelativePath": "ProductImages/10.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImages\\10.png"
+    },
+    {
+      "Identity": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\ProductImages\\9.jpg",
+      "SourceId": "FucoMicro.Services.ProductAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\",
+      "BasePath": "_content/FucoMicro.Services.ProductAPI",
+      "RelativePath": "ProductImages/9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImages\\9.jpg"
+    }
+  ]
 }

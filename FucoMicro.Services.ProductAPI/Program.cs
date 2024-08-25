@@ -65,8 +65,9 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-ApplyMigration();
+app.UseStaticFiles();
 app.MapControllers();
+ApplyMigration();
 
 app.Run();
 

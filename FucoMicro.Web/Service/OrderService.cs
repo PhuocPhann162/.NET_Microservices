@@ -12,6 +12,23 @@ namespace FucoMicro.Web.Service
         {
             _baseService = baseService;
         }
+        public async Task<ResponseDto?> GetAllOrdersAsync(string? userId)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.OrderAPIBase + "/api/order/GetOrders/" + userId
+            });
+        }
+
+        public async Task<ResponseDto?> GetOrderByIdAsync(int orderId)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.OrderAPIBase + "/api/order/GetOrderById/" + orderId
+            });
+        }
 
         public async Task<ResponseDto?> CreateOrderAsync(CartDto cartDto)
         {
@@ -40,6 +57,16 @@ namespace FucoMicro.Web.Service
                 ApiType = SD.ApiType.POST,
                 Data = orderHeaderId,
                 Url = SD.OrderAPIBase + "/api/order/ValidateStripeSession",
+            });
+        }
+
+        public async Task<ResponseDto?> UpdateOrderStatus(int orderId, string newStatus)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.POST,
+                Data = newStatus,
+                Url = SD.OrderAPIBase + "/api/order/UpdateOrderStatus/" + orderId,
             });
         }
     }

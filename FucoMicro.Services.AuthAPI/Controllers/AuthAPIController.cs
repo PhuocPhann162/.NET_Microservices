@@ -69,7 +69,7 @@ namespace FucoMicro.Services.AuthAPI.Controllers
                 _response.Message = "Something wrong when assigning user role";
                 return BadRequest(_response);
             }
-            return Ok(_response);
+            return Ok(_response); 
         }
     }
 }

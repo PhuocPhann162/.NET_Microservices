@@ -27,7 +27,6 @@ namespace FucoMicro.Services.OrderAPI.Controllers
         private readonly IMessageBus _messageBus;
         private readonly IConfiguration _configuration;
 
-
         public OrderAPIController(ApplicationDbContext db, IProductService productService, IMapper mapper, IConfiguration configuration, IMessageBus messageBus)
         {
             _db = db;
@@ -36,6 +35,73 @@ namespace FucoMicro.Services.OrderAPI.Controllers
             this._response = new();
             _configuration = configuration;
             _messageBus = messageBus;
+        }
+
+        [Authorize]
+        [HttpGet("GetOrders")]
+        public async Task<ResponseDto> GetOrders(string? userId = "")
+        {
+            try
+            {
+                IEnumerable<OrderHeader> objList;
+                if (User.IsInRole(SD.RoleAdmin))
+                {
+                    objList = await _db.OrderHeaders.Include(u => u.OrderDetails).OrderByDescending(u => u.OrderHeaderId).ToListAsync();
+                }
+                else
+                {
+                    objList = await _db.OrderHeaders.Include(u => u.OrderDetails).Where(u => u.UserId == userId)
+                        .OrderByDescending(u => u.OrderHeaderId).ToListAsync();
+                }
+
+                if (objList == null)
+                {
+                    _response.StatusCode = HttpStatusCode.NotFound;
+                    _response.IsSuccess = false;
+                    _response.Message = "Orders not found";
+                    return _response;
+                }
+
+                _response.Result = _mapper.Map<IEnumerable<OrderHeaderDto>>(objList);
+                _response.Message = "Get orders successfully";
+                _response.StatusCode = HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = (HttpStatusCode)StatusCodes.Status500InternalServerError;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return _response;
+        }
+
+        [Authorize]
+        [HttpGet("GetOrderById/{orderId:int}")]
+        public async Task<ResponseDto?> GetOrderById(int orderId)
+        {
+            try
+            {
+                OrderHeader? orderFromDb = await _db.OrderHeaders.Include(u => u.OrderDetails).FirstAsync(u => u.OrderHeaderId == orderId);
+
+                if (orderFromDb == null)
+                {
+                    _response.StatusCode = HttpStatusCode.NotFound;
+                    _response.IsSuccess = false;
+                    _response.Message = "Not Found ! Order ID: " + orderId + " may not exist";
+                    return _response;
+                }
+
+                _response.Result = _mapper.Map<OrderHeaderDto>(orderFromDb);
+                _response.Message = "Get order by ID: " + orderId + " successfully";
+                _response.StatusCode = HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = (HttpStatusCode)StatusCodes.Status500InternalServerError;
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return _response;
         }
 
         [Authorize]
@@ -64,7 +130,6 @@ namespace FucoMicro.Services.OrderAPI.Controllers
                 _response.Result = orderHeaderDto;
                 _response.StatusCode = HttpStatusCode.OK;
                 _response.Message = "Create new order successfully";
-                return _response;
             }
             catch (Exception ex)
             {
@@ -133,7 +198,6 @@ namespace FucoMicro.Services.OrderAPI.Controllers
                 _response.Result = stripeRequestDto;
                 _response.Message = "Create Stripe session successfully";
                 _response.StatusCode = HttpStatusCode.OK;
-                return _response;
             }
             catch (Exception ex)
             {
@@ -158,14 +222,15 @@ namespace FucoMicro.Services.OrderAPI.Controllers
                 var paymentIntentService = new PaymentIntentService();
                 PaymentIntent paymentIntent = paymentIntentService.Get(session.PaymentIntentId);
 
-                if(paymentIntent.Status == "succeeded")
+                if (paymentIntent.Status == "succeeded")
                 {
                     // then payment was successful
                     orderHeaderFromDb.PaymentIntentId = paymentIntent.Id;
                     orderHeaderFromDb.Status = SD.Status_Approved;
                     _db.SaveChanges();
 
-                    RewardsDto rewardsDto = new() { 
+                    RewardsDto rewardsDto = new()
+                    {
                         OrderId = orderHeaderFromDb.OrderHeaderId,
                         RewardsActivity = Convert.ToInt32(orderHeaderFromDb.OrderTotal),
                         UserId = orderHeaderFromDb.UserId
@@ -178,12 +243,50 @@ namespace FucoMicro.Services.OrderAPI.Controllers
 
                 _response.Message = "Create Stripe session successfully";
                 _response.StatusCode = HttpStatusCode.OK;
-                return _response;
             }
             catch (Exception ex)
             {
                 _response.StatusCode = HttpStatusCode.BadRequest;
                 _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return _response;
+        }
+
+        [Authorize]
+        [HttpPost("UpdateOrderStatus/{orderId:int}")]
+        public async Task<ResponseDto> UpdateStatus(int orderId, [FromBody] string newStatus)
+        {
+            try
+            {
+                OrderHeader orderFromDb = await _db.OrderHeaders.FirstAsync(u => u.OrderHeaderId == orderId);
+                if (orderFromDb != null)
+                {
+                    if (newStatus == SD.Status_Cancelled)
+                    {
+                        // we will give refund
+                        var options = new RefundCreateOptions
+                        {
+                            Reason = RefundReasons.RequestedByCustomer,
+                            PaymentIntent = orderFromDb.PaymentIntentId
+
+                        };
+                        var service = new RefundService();
+                        Refund refund = service.Create(options);
+                        orderFromDb.Status = newStatus;
+                    }
+                    orderFromDb.Status = newStatus;
+                    await _db.SaveChangesAsync();
+
+                    _response.Result = orderFromDb;
+                    _response.StatusCode = HttpStatusCode.OK;
+                    _response.Message = "Update order status successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.StatusCode = HttpStatusCode.BadRequest;
                 _response.Message = ex.Message;
             }
             return _response;

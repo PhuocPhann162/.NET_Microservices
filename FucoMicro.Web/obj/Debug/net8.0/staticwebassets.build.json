@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2b4JBUnpqlcywAeeIvNvXp4e4DgdmDxZEjHAzsUg8NQ=",
+  "Hash": "sewiAHqsn1hgJIdi26qawqkuciVal3LkhzFyvmSZdzw=",
   "Source": "FucoMicro.Web",
   "BasePath": "_content/FucoMicro.Web",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\order.PNG"
+    },
+    {
+      "Identity": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\wwwroot\\js\\order.js",
+      "SourceId": "FucoMicro.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\wwwroot\\",
+      "BasePath": "_content/FucoMicro.Web",
+      "RelativePath": "js/order.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\order.js"
     },
     {
       "Identity": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Web\\wwwroot\\js\\site.js",

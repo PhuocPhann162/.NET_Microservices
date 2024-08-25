@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\ProductImages\\10.png",
+      "PackagePath": "staticwebassets\\ProductImages\\10.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.ProductAPI\\wwwroot\\ProductImages\\9.jpg",
+      "PackagePath": "staticwebassets\\ProductImages\\9.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FucoMicro.Services.ProductAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FucoMicro.Services.ProductAPI.props",
+      "PackagePath": "build\\FucoMicro.Services.ProductAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FucoMicro.Services.ProductAPI.props",
+      "PackagePath": "buildMultiTargeting\\FucoMicro.Services.ProductAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FucoMicro.Services.ProductAPI.props",
+      "PackagePath": "buildTransitive\\FucoMicro.Services.ProductAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
