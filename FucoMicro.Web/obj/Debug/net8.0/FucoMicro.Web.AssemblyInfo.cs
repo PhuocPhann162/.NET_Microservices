@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FucoMicro.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9193fa42291a0200793b3c1e4bc8c05d0384b74")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("FucoMicro.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FucoMicro.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

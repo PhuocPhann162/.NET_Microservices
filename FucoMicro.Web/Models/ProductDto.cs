@@ -1,4 +1,5 @@
 ﻿
+using FucoMicro.Web.Utility;
 using System.ComponentModel.DataAnnotations;
 
 namespace FucoMicro.Web.Models
@@ -15,6 +16,8 @@ namespace FucoMicro.Web.Models
         [Range(1, 100)]
         public int Count { get; set; } = 1;
 
+        [MaxFileSize(1)]
+        [AllowedExtensions(new string[] { ".jpg", ".png" })]
         public IFormFile? Image { get; set; }
     }
 }

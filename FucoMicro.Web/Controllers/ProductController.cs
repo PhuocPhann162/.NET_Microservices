@@ -56,19 +56,23 @@ namespace FucoMicro.Web.Controllers
 
         public async Task<IActionResult> ProductUpdate(int productId)
         {
-            if (productId == null || productId == 0)
+            if (ModelState.IsValid)
             {
-                return NotFound();
-            }
-            ResponseDto? response = await _productService.GetProductByIdAsync(productId);
-            if (response != null && response.IsSuccess)
-            {
-                ProductDto? product = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
-                return View(product);
-            }
-            else
-            {
-                TempData["error"] = response.Message;
+
+                if (productId == null || productId == 0)
+                {
+                    return NotFound();
+                }
+                ResponseDto? response = await _productService.GetProductByIdAsync(productId);
+                if (response != null && response.IsSuccess)
+                {
+                    ProductDto? product = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+                    return View(product);
+                }
+                else
+                {
+                    TempData["error"] = response.Message;
+                }
             }
             return NotFound();
         }
