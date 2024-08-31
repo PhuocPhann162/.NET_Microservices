@@ -1,6 +1,7 @@
 ﻿using FucoMicro.Web.Models;
 using FucoMicro.Web.Service.IService;
 using FucoMicro.Web.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
@@ -14,10 +15,14 @@ namespace FucoMicro.Web.Controllers
         {
             _orderService = orderService;
         }
+
+        [Authorize]
         public IActionResult OrderIndex()
         {
             return View();
         }
+
+        [Authorize]
         public async Task<IActionResult> OrderDetail(int orderId)
         {
             OrderHeaderDto orderHeaderDto = new();

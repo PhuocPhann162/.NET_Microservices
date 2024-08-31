@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.EmailAPI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.OrderAPI", "FucoMicro.Services.OrderAPI\FucoMicro.Services.OrderAPI.csproj", "{DF4924C3-C274-49D2-BEE2-2AD93EA02A62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.Services.RewardAPI", "FucoMicro.Services.RewardAPI\FucoMicro.Services.RewardAPI.csproj", "{40304516-BAFC-4DF5-A354-EEBA07249B7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FucoMicro.Services.RewardAPI", "FucoMicro.Services.RewardAPI\FucoMicro.Services.RewardAPI.csproj", "{40304516-BAFC-4DF5-A354-EEBA07249B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FucoMicro.GatewaySolution", "Fuco.GatewaySolution\FucoMicro.GatewaySolution.csproj", "{417F9B9F-CF0A-4E63-8EE8-6EE186F5CF4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{40304516-BAFC-4DF5-A354-EEBA07249B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40304516-BAFC-4DF5-A354-EEBA07249B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40304516-BAFC-4DF5-A354-EEBA07249B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417F9B9F-CF0A-4E63-8EE8-6EE186F5CF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417F9B9F-CF0A-4E63-8EE8-6EE186F5CF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417F9B9F-CF0A-4E63-8EE8-6EE186F5CF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417F9B9F-CF0A-4E63-8EE8-6EE186F5CF4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{7664E064-A592-41B1-BD30-BD6C987E02CE} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 		{DF4924C3-C274-49D2-BEE2-2AD93EA02A62} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
 		{40304516-BAFC-4DF5-A354-EEBA07249B7C} = {D9E337F1-0145-4D52-85B2-3DFBD1214FDA}
+		{417F9B9F-CF0A-4E63-8EE8-6EE186F5CF4C} = {A0ED9091-E466-4C73-A7AD-F263EDFE06D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E85E3EC-18C4-48E8-B06E-2736B4F2D55E}

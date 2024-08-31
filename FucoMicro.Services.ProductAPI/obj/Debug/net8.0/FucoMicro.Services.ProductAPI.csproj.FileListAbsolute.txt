@@ -1,5 +1,6 @@
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\appsettings.json
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\FucoMicro.Services.ProductAPI.staticwebassets.runtime.json
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\FucoMicro.Services.ProductAPI.exe
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\FucoMicro.Services.ProductAPI.deps.json
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\FucoMicro.Services.ProductAPI.runtimeconfig.json
@@ -78,4 +79,3 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\obj\De
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\obj\Debug\net8.0\FucoMicro.Services.ProductAPI.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\obj\Debug\net8.0\FucoMicro.Services.ProductAPI.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\obj\Debug\net8.0\ref\FucoMicro.Services.ProductAPI.dll
-C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.ProductAPI\bin\Debug\net8.0\FucoMicro.Services.ProductAPI.staticwebassets.runtime.json
