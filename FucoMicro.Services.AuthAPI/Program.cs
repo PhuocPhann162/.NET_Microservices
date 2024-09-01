@@ -1,6 +1,7 @@
 using FucoMicro.MessageBus;
 using FucoMicro.Services.AuthAPI.Data;
 using FucoMicro.Services.AuthAPI.Models;
+using FucoMicro.Services.AuthAPI.RabbitMQSender;
 using FucoMicro.Services.AuthAPI.Services;
 using FucoMicro.Services.AuthAPI.Services.IService;
 using Microsoft.AspNetCore.Identity;
@@ -22,7 +23,7 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSett
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 // Add Message Bus life cycle 
-builder.Services.AddScoped<IMessageBus, MessageBus>();
+builder.Services.AddScoped<IRabbitMQAuthMessageSender, RabbitMQAuthMessageSender>();
 
 // Config another prop for AspNetUser Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();

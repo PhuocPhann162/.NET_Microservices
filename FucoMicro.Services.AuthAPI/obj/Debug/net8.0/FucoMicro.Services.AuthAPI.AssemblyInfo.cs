@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FucoMicro.Services.AuthAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37ce2edb53a8042749739f2dca53d742dc4c561b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fd20228a4d26215656d01453060b6ae5d8119cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("FucoMicro.Services.AuthAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FucoMicro.Services.AuthAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

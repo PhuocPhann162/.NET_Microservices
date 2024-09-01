@@ -794,6 +794,22 @@
           }
         }
       },
+      "RabbitMQ.Client/7.0.0-rc.8": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Pipelines": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/RabbitMQ.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/RabbitMQ.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -981,6 +997,22 @@
           "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.IO.Pipelines/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Memory/4.5.4": {
@@ -2631,6 +2663,23 @@
         "packageIcon.png"
       ]
     },
+    "RabbitMQ.Client/7.0.0-rc.8": {
+      "sha512": "fGmjNHrtXCzHZ9gYzihJ4f+rPi4qe1rEq3Q/FQT1WxhzsxxRnJViIFTvz1TqFCdx8pOtNjUZRvLC1KmpLBim5Q==",
+      "type": "package",
+      "path": "rabbitmq.client/7.0.0-rc.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net6.0/RabbitMQ.Client.dll",
+        "lib/net6.0/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.7.0.0-rc.8.nupkg.sha512",
+        "rabbitmq.client.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "sha512": "eUBr4TW0up6oKDA5Xwkul289uqSMgY0xGN4pnbOIBqCcN9VKGGaPvHX3vWaG/hvocfGDP+MGzMA0bBBKz2fkmQ==",
       "type": "package",
@@ -2879,6 +2928,31 @@
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
         "system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
+      ]
+    },
+    "System.IO.Pipelines/6.0.0": {
+      "sha512": "mXX66shZ4xLlI3vNLaJ0lt8OIZdmXTvIqXRdQX5HLVGSkLhINLsVhyZuX2UdRFnOGkqnwmMUs40pIIQ7mna4+A==",
+      "type": "package",
+      "path": "system.io.pipelines/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.IO.Pipelines.dll",
+        "lib/net461/System.IO.Pipelines.xml",
+        "lib/net6.0/System.IO.Pipelines.dll",
+        "lib/net6.0/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.1/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.1/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.6.0.0.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Memory/4.5.4": {
@@ -3639,6 +3713,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0-preview.3.23174.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0-preview.3.23174.2",
       "Newtonsoft.Json >= 13.0.3",
+      "RabbitMQ.Client >= 7.0.0-rc.8",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -3718,6 +3793,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "RabbitMQ.Client": {
+            "target": "Package",
+            "version": "[7.0.0-rc.8, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

@@ -86,3 +86,4 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug\net8.0\FucoMicro.Services.AuthAPI.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug\net8.0\FucoMicro.Services.AuthAPI.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\obj\Debug\net8.0\ref\FucoMicro.Services.AuthAPI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.AuthAPI\bin\Debug\net8.0\RabbitMQ.Client.dll

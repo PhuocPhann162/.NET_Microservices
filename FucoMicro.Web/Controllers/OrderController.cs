@@ -28,7 +28,7 @@ namespace FucoMicro.Web.Controllers
             OrderHeaderDto orderHeaderDto = new();
             string userId = User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault().Value;
 
-            var response = await _orderService.GetOrderByIdAsync(orderId);
+            var response = await _orderService.GetOrderByIdAsync(orderId );
 
             if (response != null && response.IsSuccess)
             {
