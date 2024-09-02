@@ -4,10 +4,9 @@ using FucoMicro.MessageBus;
 using FucoMicro.Services.OrderAPI.Data;
 using FucoMicro.Services.OrderAPI.Models;
 using FucoMicro.Services.OrderAPI.Models.Dto;
-using FucoMicro.Services.OrderAPI.Services;
+using FucoMicro.Services.OrderAPI.RabbitMQSender;
 using FucoMicro.Services.OrderAPI.Utilities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Stripe;
@@ -23,14 +22,12 @@ namespace FucoMicro.Services.OrderAPI.Controllers
         protected ResponseDto _response;
         private readonly ApplicationDbContext _db;
         private IMapper _mapper;
-        private IProductService _productService;
-        private readonly IMessageBus _messageBus;
+        private readonly IRabbitMQOrderMessageSender _messageBus;
         private readonly IConfiguration _configuration;
 
-        public OrderAPIController(ApplicationDbContext db, IProductService productService, IMapper mapper, IConfiguration configuration, IMessageBus messageBus)
+        public OrderAPIController(ApplicationDbContext db, IMapper mapper, IConfiguration configuration, IRabbitMQOrderMessageSender messageBus)
         {
             _db = db;
-            _productService = productService;
             _mapper = mapper;
             this._response = new();
             _configuration = configuration;

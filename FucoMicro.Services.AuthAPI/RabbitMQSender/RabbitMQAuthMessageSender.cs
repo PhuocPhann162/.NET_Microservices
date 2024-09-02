@@ -55,7 +55,7 @@ namespace FucoMicro.Services.AuthAPI.RabbitMQSender
 
         private bool ConnectionExists()
         {
-            if (_connection == null)
+            if (_connection != null)
             {
                 return true;
             }

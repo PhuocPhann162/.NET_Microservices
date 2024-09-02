@@ -7,6 +7,7 @@ using FucoMicro.Services.OrderAPI.Utilities;
 using FucoMicro.Services.OrderAPI.Services;
 using FucoMicro.MessageBus;
 using FucoMicro.Services.OrderAPI.Extensions;
+using FucoMicro.Services.OrderAPI.RabbitMQSender;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,7 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IMessageBus, MessageBus>();
+builder.Services.AddScoped<IRabbitMQOrderMessageSender, RabbitMQOrderMessageSender>();
 
 // Config Http for communicating with ProductAPI service from ProductService.cs
 builder.Services.AddHttpClient("Product", u => u.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductAPI"])).AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();

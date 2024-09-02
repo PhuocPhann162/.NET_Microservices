@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "25stV1uOT4uuQJcvreaqmy6iA58MpPv7GHMMMgxjadkmOLbPAdYmQQPZcUr0ngLlJS1SIq+lEmPtsK3ZZis8AQ==",
+  "dgSpecHash": "32LHnvzWwMq3mcubB/6pHcsQfcOppAruTcphxsVeZV57bG816uE+Gbr/ABdVNgfq/U5qUgXgE7y+i1AoMGnFkQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\source\\repos\\ASPNET\\FucoMicro\\FucoMicro.Services.RewardAPI\\FucoMicro.Services.RewardAPI.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,7 @@
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\rabbitmq.client\\7.0.0-rc.8\\rabbitmq.client.7.0.0-rc.8.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
@@ -62,6 +63,7 @@
     "C:\\Users\\Asus\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.24.0\\system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

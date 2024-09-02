@@ -3,6 +3,7 @@ using FucoMicro.MessageBus;
 using FucoMicro.Services.ShoppingCartAPI.Data;
 using FucoMicro.Services.ShoppingCartAPI.Models;
 using FucoMicro.Services.ShoppingCartAPI.Models.Dto;
+using FucoMicro.Services.ShoppingCartAPI.RabbitMQSender;
 using FucoMicro.Services.ShoppingCartAPI.Services.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -21,8 +22,8 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
         private readonly IConfiguration _configuration;
         private IProductService _productService;
         private ICouponService _couponService;
-        private readonly IMessageBus _messageBus;
-        public CartAPIController(ApplicationDbContext db, IMapper mapper, IProductService productService, ICouponService couponService, IMessageBus messageBus, IConfiguration configuration)
+        private readonly IRabbitMQCartMessageSender _messageBus;
+        public CartAPIController(ApplicationDbContext db, IMapper mapper, IProductService productService, ICouponService couponService, IRabbitMQCartMessageSender messageBus, IConfiguration configuration)
         {
             _db = db;
             _mapper = mapper;
@@ -104,7 +105,7 @@ namespace FucoMicro.Services.ShoppingCartAPI.Controllers
         {
             try
             {
-                await _messageBus.PublishMessage(cartDto, _configuration.GetValue<string>("TopicAndQueueNames:EmailShoppingCartQueue"));
+                _messageBus.SendMessage(cartDto, _configuration.GetValue<string>("TopicAndQueueNames:EmailShoppingCartQueue"));
                 
                 _response.Result = true;
                 _response.StatusCode = HttpStatusCode.OK;
