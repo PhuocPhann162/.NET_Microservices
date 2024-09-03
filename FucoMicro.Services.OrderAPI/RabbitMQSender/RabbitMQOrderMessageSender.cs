@@ -29,9 +29,8 @@ namespace FucoMicro.Services.OrderAPI.RabbitMQSender
                 var json = JsonConvert.SerializeObject(message);
                 var body = Encoding.UTF8.GetBytes(json);
 
-                channel.BasicPublishAsync(exchange: exchangeName, "", body: body);
+                channel.BasicPublishAsync(exchange: exchangeName, "", body: body).GetAwaiter().GetResult();
             }
-
         }
 
         private void CreateConnection()

@@ -86,3 +86,4 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.OrderAPI\obj\Debu
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.OrderAPI\obj\Debug\net8.0\FucoMicro.Services.OrderAPI.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.OrderAPI\obj\Debug\net8.0\FucoMicro.Services.OrderAPI.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.OrderAPI\obj\Debug\net8.0\ref\FucoMicro.Services.OrderAPI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.OrderAPI\bin\Debug\net8.0\RabbitMQ.Client.dll

@@ -233,7 +233,7 @@ namespace FucoMicro.Services.OrderAPI.Controllers
                         UserId = orderHeaderFromDb.UserId
                     };
                     string topicName = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedTopic");
-                    await _messageBus.PublishMessage(rewardsDto, topicName);
+                    _messageBus.SendMessage(rewardsDto, topicName);
 
                     _response.Result = _mapper.Map<ResponseDto>(orderHeaderFromDb);
                 }

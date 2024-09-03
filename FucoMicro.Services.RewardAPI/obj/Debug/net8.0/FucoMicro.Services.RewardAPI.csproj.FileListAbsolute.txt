@@ -83,3 +83,4 @@ C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.RewardAPI\obj\Deb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.RewardAPI\obj\Debug\net8.0\FucoMicro.Services.RewardAPI.pdb
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.RewardAPI\obj\Debug\net8.0\FucoMicro.Services.RewardAPI.genruntimeconfig.cache
 C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.RewardAPI\obj\Debug\net8.0\ref\FucoMicro.Services.RewardAPI.dll
+C:\Users\Asus\source\repos\ASPNET\FucoMicro\FucoMicro.Services.RewardAPI\bin\Debug\net8.0\RabbitMQ.Client.dll
